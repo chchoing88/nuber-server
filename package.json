@@ -30,8 +30,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "graphql": "^14.4.1",
+    "graphql-tools": "^4.0.5",
     "graphql-yoga": "^1.18.0",
     "helmet": "^3.18.0",
+    "merge-graphql-schemas": "^1.5.8",
     "morgan": "^1.9.1"
   }
 }
