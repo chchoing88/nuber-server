@@ -1,0 +1,14 @@
+# email이나 phoneNumber를 verifify할때, verification 정보를 db에 만들기 위해서
+# 우리는 사용자의 email, phoneNumber로 verification 정보를 만들고, key 값 또한 제작하게 될것이다.
+# 아! 이게 회원가입할때나 기타등등 휴대폰 인증같은거 할때 문자로 날라오는 4자리 숫자를 위해 사용하는 거 같다.
+
+type Verification {
+  id: Int!
+  target: String!
+  payload: String!
+  key: String!
+  used: Boolean!
+  user: User!
+  createdAt: String!
+  updatedAt: String
+}

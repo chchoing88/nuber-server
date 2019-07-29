@@ -7,9 +7,15 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn
 } from "typeorm";
+import Chat from "./Chat";
+import Message from "./Message";
+import Ride from "./Ride";
+import Verification from "./Verification";
 
 const BCRYPT_ROUNTS = 10;
 
@@ -69,6 +75,21 @@ class User extends BaseEntity {
 
   @UpdateDateColumn()
   updateAt: string;
+
+  @ManyToOne(type => Chat, chat => chat.participants)
+  chat: Chat;
+
+  @OneToMany(type => Message, message => message.user)
+  messages: Message[];
+
+  @OneToMany(type => Verification, verification => verification.user)
+  verifications: Verification[];
+
+  @OneToMany(type => Ride, ride => ride.passenger) // 하나의 유저에는 여러명의 Ride를 가질 수 있다.?
+  ridesAsPassenger: Ride[];
+
+  @OneToMany(type => Ride, ride => ride.driver)
+  ridesAsDrivers: Ride[];
 
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
