@@ -44,6 +44,16 @@ type Ride {
   updateAt: String
 }
 
+type EmailSignInResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Mutataion {
+  EmailSignIn(email: String!, password: String!): EmailSignInResponse!
+}
+
 type FacebookConnectResponse {
   ok: Boolean!
   error: String
