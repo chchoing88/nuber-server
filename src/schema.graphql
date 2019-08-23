@@ -50,18 +50,16 @@ type EmailSignInResponse {
   token: String
 }
 
-type Mutataion {
+type Mutation {
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
+  FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
+  StartPhoneVerification(phoneNumber: String): StartPhoneVerificationResponse!
 }
 
 type FacebookConnectResponse {
   ok: Boolean!
   error: String
   token: String
-}
-
-type Mutation {
-  FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
 }
 
 type User {
@@ -94,6 +92,11 @@ type User {
 
 type Query {
   user: User
+}
+
+type StartPhoneVerificationResponse {
+  ok: Boolean!
+  error: String
 }
 
 type Verification {

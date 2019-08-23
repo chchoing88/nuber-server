@@ -1,4 +1,4 @@
-import { EmailSignInMutataionArgs, EmailSignInResponse } from "src/types/graph";
+import { EmailSignInMutationArgs, EmailSignInResponse } from "src/types/graph";
 import { Resolvers } from "src/types/resolvers";
 import User from "../../../entities/User";
 
@@ -7,7 +7,7 @@ const resolvers: Resolvers = {
   Mutation: {
     EmailSignIn: async (
       _,
-      args: EmailSignInMutataionArgs
+      args: EmailSignInMutationArgs
     ): Promise<EmailSignInResponse> => {
       const { email, password } = args;
       try {

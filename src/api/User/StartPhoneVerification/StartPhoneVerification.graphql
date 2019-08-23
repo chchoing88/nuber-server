@@ -1,0 +1,10 @@
+# Verification을 생성할꺼니 Mutation
+
+type StartPhoneVerificationResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  StartPhoneVerification(phoneNumber: String): StartPhoneVerificationResponse!
+}
